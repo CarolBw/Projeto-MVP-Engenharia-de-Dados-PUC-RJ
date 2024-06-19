@@ -1,16 +1,15 @@
 # Projeto-MVP-Engenharia-de-Dados-PUC-RJ
-
 Projeto de Conclusão de Curso Engenharia de Dados PUC-RJ
 
-## MVP - Análise da Variação do Dirham e Correlações com a Temperatura de Dubai ao Longo de 10 Anos 
+### MVP - Análise da Variação do Dirham e Correlações com a Temperatura de Dubai ao Longo de 10 Anos 
 
-### Este projeto visa a criação de um pipeline de dados robusto e automatizado para analisar a variação da moeda Dirham (UAE) ao longo de 10 anos, compreendendo seus padroes anuais e a existencia de relação de sua variação com a temperatura na cidade de Dubai (UAE). Utilizando um esquema estrela em um Data Warehouse no PostgreSQL hospedado no AWS RDS, extraímos, transformamos e carregamos os dados históricos da moeda e da temperatura. A automatização do pipeline será realizada com o Apache Airflow, garantindo a atualização contínua dos dados. 
+Este projeto visa a criação de um pipeline de dados robusto e automatizado para analisar a variação da moeda Dirham (UAE) ao longo de 10 anos, compreendendo seus padroes anuais e a existencia de relação de sua variação com a temperatura na cidade de Dubai (UAE). Utilizando um esquema estrela em um Data Warehouse no PostgreSQL hospedado no AWS RDS, extraímos, transformamos e carregamos os dados históricos da moeda e da temperatura. A automatização do pipeline será realizada com o Apache Airflow, garantindo a atualização contínua dos dados. 
 
-### Os resultados serão apresentados através de dashboards no Tableau, facilitando a visualização e interpretação dos padrões sazonais e anuais, bem como a correlação entre o valor do Dirham e a temperatura. A utilização do GitHub para controle de versão assegura a reprodutibilidade e a colaboração eficiente ao longo do desenvolvimento do projeto. 
+Os resultados serão apresentados através de dashboards no Tableau, facilitando a visualização e interpretação dos padrões sazonais e anuais, bem como a correlação entre o valor do Dirham e a temperatura. A utilização do GitHub para controle de versão assegura a reprodutibilidade e a colaboração eficiente ao longo do desenvolvimento do projeto. 
 
-### Esta abordagem integrada foi estabelecida de acordo com os critérios  predefinidos para o projeto MVP de Engenharia de Dados da PUC_RJ. 
+Esta abordagem integrada foi estabelecida de acordo com os critérios  predefinidos para o projeto MVP de Engenharia de Dados da PUC_RJ. 
 
-## Objetivo 
+### Objetivo 
 
 Analisar a variação do Dirham (AED) ao longo de 10 anos. 
 
@@ -27,8 +26,7 @@ Criar um Data Warehouse com esquema estrela para facilitar análises OLAP.
 Apresentar os resultados de forma clara e visualmente atraente através de dashboards. 
 
  
-
-## Perguntas do Negócio 
+### Perguntas do Negócio 
 
 Quais são as variações sazonais do Dirham ao longo dos anos? 
 
@@ -41,14 +39,14 @@ Há correlação entre a variação do Dirham e a temperatura em Dubai?
 Previsão do valor do Dirham para os próximos meses em relação ao Real Brasileiro. 
 
 
-## Dados Necessários 
+### Dados Necessários 
 
 Valor da moeda Dirham (UAE) nos últimos 10 anos. 
 
 Dados de temperatura dos últimos 10 anos na cidade de Dubai. 
 
 
-## Escopo 
+### Escopo 
 
 Extração de dados históricos da moeda. 
 
@@ -67,7 +65,7 @@ Criar um modelo preditivo.
 Apresentação de resultados 
 
 
-## Ferramentas  
+### Ferramentas  
 
 Ambiente de Desenvolvimento: Google Colab 
 
