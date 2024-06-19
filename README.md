@@ -9,6 +9,8 @@ Os resultados serão apresentados através de dashboards no Tableau, facilitando
 
 Esta abordagem integrada foi estabelecida de acordo com os critérios  predefinidos para o projeto MVP de Engenharia de Dados da PUC_RJ. 
 
+
+
 ### Objetivo 
 
 Analisar a variação do Dirham (AED) ao longo de 10 anos. 
@@ -26,6 +28,7 @@ Criar um Data Warehouse com esquema estrela para facilitar análises OLAP.
 Apresentar os resultados de forma clara e visualmente atraente através de dashboards. 
 
  
+
 ### Perguntas do Negócio 
 
 Quais são as variações sazonais do Dirham ao longo dos anos? 
@@ -39,11 +42,13 @@ Há correlação entre a variação do Dirham e a temperatura em Dubai?
 Previsão do valor do Dirham para os próximos meses em relação ao Real Brasileiro. 
 
 
+
 ### Dados Necessários 
 
 Valor da moeda Dirham (UAE) nos últimos 10 anos. 
 
 Dados de temperatura dos últimos 10 anos na cidade de Dubai. 
+
 
 
 ### Escopo 
@@ -63,6 +68,7 @@ Criar Dashboards para visualização.
 Criar um modelo preditivo. 
 
 Apresentação de resultados 
+
 
 
 ### Ferramentas  
