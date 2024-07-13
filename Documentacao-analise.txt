@@ -1,0 +1,83 @@
+Análise de Dados: Impacto das Variações Climáticas nas Taxas de Câmbio 
+
+Introdução 
+
+Este documento apresenta uma análise detalhada das variações climáticas em Dubai e seu impacto nas taxas de câmbio entre USD, AED e BRL. A análise tem como objetivo fornecer insights valiosos para a tomada de decisões econômicas, explorando padrões sazonais, correlações entre temperatura e taxas de câmbio, volatilidade das moedas e o desempenho histórico do Dirham em relação ao Real e ao Dólar. 
+
+Questões Norteadoras 
+
+1. Análise Temporal das Temperaturas em Dubai 
+
+Pergunta: Quais são as tendências sazonais e anuais das temperaturas em Dubai? 
+
+Objetivo: Identificar padrões sazonais que possam impactar a economia local ao longo do tempo. 
+
+2. Correlação entre Temperatura e Taxas de Câmbio 
+
+Pergunta: Existe correlação entre as temperaturas em Dubai e as taxas de câmbio (USD/AED, USD/BRL, AED/BRL)? 
+
+Objetivo: Entender se as mudanças climáticas influenciam diretamente as taxas de câmbio das moedas investigadas. 
+
+3. Volatilidade das Taxas de Câmbio 
+
+Pergunta: Quais são os períodos de maior volatilidade entre USD, AED e BRL? Existem padrões sazonais na volatilidade? 
+
+Objetivo: Identificar períodos de alta volatilidade para melhor gestão de riscos e estratégias financeiras. 
+
+4. Impacto das Variações Climáticas nas Taxas de Câmbio 
+
+Pergunta: Como as variações climáticas em Dubai influenciam as taxas de câmbio entre USD, AED e BRL? 
+
+Objetivo: Analisar como mudanças nas temperaturas em Dubai podem afetar as taxas de câmbio das moedas investigadas. 
+
+5. Desempenho do Dirham em Relação ao Real e Dólar 
+
+Pergunta: Qual é o desempenho histórico do Dirham em relação ao Real e ao Dólar nos últimos 10 anos? 
+
+Objetivo: Identificar tendências de valorização ou desvalorização do Dirham em comparação com o Real e o Dólar para insights de investimento. 
+
+6. Interdependência entre as Moedas Investigadas 
+
+Pergunta: Como as taxas de câmbio entre USD, AED e BRL interagem ao longo do período analisado? 
+
+Objetivo: Compreender as relações e interações entre as moedas investigadas para estratégias de investimento e gestão de riscos. 
+
+Plano de Ação para Análise de Dados 
+
+1. Análise Temporal das Temperaturas e Taxas de Câmbio 
+
+Visualização e análise exploratória das séries temporais de temperaturas e taxas de câmbio. 
+
+Identificação de padrões sazonais nas temperaturas e correlações preliminares com as taxas de câmbio. 
+
+2. Correlação entre Temperatura e Taxas de Câmbio 
+
+Cálculo de correlações estatísticas entre as médias de temperatura e as taxas de câmbio. 
+
+Visualização das correlações ao longo do tempo para cada par de moedas investigado. 
+
+3. Análise de Volatilidade das Taxas de Câmbio 
+
+Cálculo de métricas de volatilidade (como desvio padrão) para USD, AED e BRL. 
+
+Identificação de períodos de alta volatilidade e investigação de padrões sazonais. 
+
+4. Impacto das Variações Climáticas nas Taxas de Câmbio 
+
+Modelagem estatística para avaliar o impacto das variações climáticas em Dubai nas taxas de câmbio. 
+
+Análise de séries temporais para identificar correlações significativas entre eventos climáticos e mudanças nas taxas de câmbio. 
+
+5. Desempenho Histórico do Dirham em Relação ao Real e Dólar 
+
+Análise comparativa do histórico de valorização do Dirham em relação ao Real e ao Dólar. 
+
+Identificação de períodos de força ou fraqueza do Dirham em comparação com as duas moedas. 
+
+6. Análise da Interdependência entre as Moedas Investigadas 
+
+Análise de co-movimentação entre as taxas de câmbio USD, AED e BRL. 
+
+Utilização de métodos de cointegração e análise de correlação cruzada para entender as interações entre as moedas. 
+
+Este documento estabelece um roteiro claro para a análise de dados que visa responder às perguntas norteadoras, utilizando técnicas analíticas avançadas para explorar as relações entre variações climáticas em Dubai e as taxas de câmbio entre USD, AED e BRL.  
