@@ -1,0 +1,13 @@
+ apache-airflow==2.2.0
+   pandas==1.4.0
+   numpy==1.21.0
+   seaborn==0.11.2
+   matplotlib==3.4.3
+   psycopg2==2.9.2
+   sqlalchemy==1.4.25
+   pygithub==1.61
+   requests==2.26.0
+   yfinance==0.1.64
+   datetime==4.3
+   Meteostat==1.2.3
+   google-cloud-storage==1.45.0
