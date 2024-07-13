@@ -19,14 +19,6 @@ Esta abordagem integrada foi estabelecida de acordo com os critérios predefinid
 - Criar um Data Warehouse com esquema estrela para facilitar análises OLAP.
 - Apresentar os resultados de forma clara e visualmente atraente através de dashboards.
 
-## Perguntas do Negócio
-
-- Quais são as variações sazonais do Dirham ao longo dos anos?
-- Como a taxa de câmbio do Dirham se relaciona com a temperatura em Dubai?
-- Quais são os padrões mensais e anuais na taxa de câmbio do Dirham?
-- Há correlação entre a variação do Dirham e a temperatura em Dubai?
-- Previsão do valor do Dirham para os próximos meses em relação ao Real Brasileiro.
-
 ## Dados Necessários
 
 - Valor da moeda Dirham (UAE) nos últimos 10 anos.
@@ -34,6 +26,7 @@ Esta abordagem integrada foi estabelecida de acordo com os critérios predefinid
 
 ## Escopo
 
+- Criação de um pipeline de dados
 - Extração de dados históricos da moeda.
 - Extração dos dados de temperatura.
 - Mesclagem de dados.
