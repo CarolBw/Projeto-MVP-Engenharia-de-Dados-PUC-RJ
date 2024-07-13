@@ -1,99 +1,79 @@
+
 # Projeto-MVP-Engenharia-de-Dados-PUC-RJ
-Projeto de Conclusão de Curso Engenharia de Dados PUC-RJ
 
-### MVP - Análise da Variação do Dirham e Correlações com a Temperatura de Dubai ao Longo de 10 Anos 
+## MVP - Análise da Variação do Dirham e Correlações com a Temperatura de Dubai ao Longo de 10 Anos
 
-Este projeto visa a criação de um pipeline de dados robusto e automatizado para analisar a variação da moeda Dirham (UAE) ao longo de 10 anos, compreendendo seus padroes anuais e a existencia de relação de sua variação com a temperatura na cidade de Dubai (UAE). Utilizando um esquema estrela em um Data Warehouse no PostgreSQL hospedado no AWS RDS, extraímos, transformamos e carregamos os dados históricos da moeda e da temperatura. A automatização do pipeline será realizada com o Apache Airflow, garantindo a atualização contínua dos dados. 
+Este projeto visa a criação de um pipeline de dados automatizado para analisar a variação da moeda Dirham (UAE) ao longo de 10 anos, compreendendo seus padrões anuais e a existência de relação de sua variação com a temperatura na cidade de Dubai (UAE). Utilizando um esquema estrela em um Data Warehouse no PostgreSQL, extraímos, limpamos, transformamos e carregamos os dados históricos da moeda e da temperatura. A automatização do pipeline será realizada com o Apache Airflow, garantindo a atualização contínua dos dados.
 
-Os resultados serão apresentados através de dashboards no Tableau, facilitando a visualização e interpretação dos padrões sazonais e anuais, bem como a correlação entre o valor do Dirham e a temperatura. A utilização do GitHub para controle de versão assegura a reprodutibilidade e a colaboração eficiente ao longo do desenvolvimento do projeto. 
+Os resultados serão apresentados através de dashboards facilitando a visualização e interpretação dos padrões sazonais e anuais, bem como a correlação entre o valor do Dirham e a temperatura. A utilização do GitHub assegura um controle de versão eficiente ao longo do desenvolvimento do projeto.
 
-Esta abordagem integrada foi estabelecida de acordo com os critérios  predefinidos para o projeto MVP de Engenharia de Dados da PUC_RJ. 
+Esta abordagem integrada foi estabelecida de acordo com os critérios predefinidos para o projeto MVP de Engenharia de Dados da PUC-RJ.
 
+## Objetivo
 
+- Analisar a variação do Dirham (AED) ao longo de 10 anos.
+- Identificar padrões anuais e sazonais.
+- Verificar se há correlação entre a variação do Dirham e a temperatura em Dubai.
+- Converter o Dirham para o Real Brasileiro (BRL) para facilitar a apresentação dos resultados.
+- Automatizar o pipeline de dados utilizando Apache Airflow.
+- Criar um Data Warehouse com esquema estrela para facilitar análises OLAP.
+- Apresentar os resultados de forma clara e visualmente atraente através de dashboards.
 
-### Objetivo 
+## Perguntas do Negócio
 
-Analisar a variação do Dirham (AED) ao longo de 10 anos. 
+- Quais são as variações sazonais do Dirham ao longo dos anos?
+- Como a taxa de câmbio do Dirham se relaciona com a temperatura em Dubai?
+- Quais são os padrões mensais e anuais na taxa de câmbio do Dirham?
+- Há correlação entre a variação do Dirham e a temperatura em Dubai?
+- Previsão do valor do Dirham para os próximos meses em relação ao Real Brasileiro.
 
-Identificar padrões anuais e sazonais. 
+## Dados Necessários
 
-Verificar se há correlação entre a variação do Dirham e a temperatura em Dubai. 
+- Valor da moeda Dirham (UAE) nos últimos 10 anos.
+- Dados de temperatura dos últimos 10 anos na cidade de Dubai.
 
-Converter o Dirham para o Real Brasileiro (BRL) para facilitar a apresentação dos resultados. 
+## Escopo
 
-Automatizar o pipeline de dados utilizando Apache Airflow. 
+- Extração de dados históricos da moeda.
+- Extração dos dados de temperatura.
+- Mesclagem de dados.
+- Limpeza e transformação dos dados.
+- Carga em um Data Warehouse com esquema estrela.
+- Realizar análise OLAP.
+- Criar Dashboards para visualização.
+- Criar um modelo preditivo.
+- Apresentação de resultados.
 
-Criar um Data Warehouse com esquema estrela para facilitar análises OLAP. 
+## Ferramentas e Serviços Utilizados
 
-Apresentar os resultados de forma clara e visualmente atraente através de dashboards. 
+- Google Cloud Storage (GCS): Armazenamento de dados brutos.
+- Cloud Composer: Orquestração do pipeline de dados com Apache Airflow.
+- Google BigQuery: Data Warehouse para armazenamento e análise de dados.
+- PostgreSQL: Banco de dados relacional para armazenar dados no data warehouse.
+- Apache Spark: Processamento de dados.
+- Google Colab: Ambiente de desenvolvimento em nuvem.
+- Bibliotecas Básicas para manipulação e visualização de dados.
+- GitHub: Controle de versão.
 
- 
+## Fluxo do Pipeline
 
-### Perguntas do Negócio 
+- Fonte de Dados: APIs Yahoo Finance (moedas) e Meteostat (temperatura).
 
-Quais são as variações sazonais do Dirham ao longo dos anos? 
+1. Extração:
+  - Cloud Composer DAG: Inicia a extração periódica de dados.
+  - Google Cloud Storage (GCS): Armazenamento de Dados Brutos (Armazena arquivos CSV/JSON com dados extraídos).
 
-Como a taxa de câmbio do Dirham se relaciona com a temperatura em Dubai? 
+2. Processamento e Transformação:
+  - Colaboratory com Spark: Lê os dados brutos do GCS, realiza transformações e salva dados transformados no PostgreSQL e BigQuery.
 
-Quais são os padrões mensais e anuais na taxa de câmbio do Dirham? 
+3. Carregamento de Dados Preparados:
+  - PostgreSQL: Armazena dados transformados para análises no data warehouse.
+  - BigQuery: Importa dados transformados do GCS, cria um esquema estrela para análises OLAP (tabelas de fato e dimensões).
 
-Há correlação entre a variação do Dirham e a temperatura em Dubai? 
+4. Análise e Visualização:
+  - BigQuery: Realiza consultas analíticas para análise de correlação entre Dirham, dólar, real e temperaturas de Dubai.
+  - Cloud Composer: Gerencia o fluxo de trabalho completo, agendando e orquestrando os processos no Apache Airflow.
 
-Previsão do valor do Dirham para os próximos meses em relação ao Real Brasileiro. 
+## Licença
 
-
-
-### Dados Necessários 
-
-Valor da moeda Dirham (UAE) nos últimos 10 anos. 
-
-Dados de temperatura dos últimos 10 anos na cidade de Dubai. 
-
-
-
-### Escopo 
-
-Extração de dados históricos da moeda. 
-
-Extração dos dados de temperatura. 
-
-Transformação dos dados. 
-
-Carga em um Data Warehouse com esquema estrela. 
-
-Realizar análise OLAP. 
-
-Criar Dashboards para visualização. 
-
-Criar um modelo preditivo. 
-
-Apresentação de resultados 
-
-
-
-### Ferramentas  
-
-Ambiente de Desenvolvimento: Google Colab 
-
-Linguagem: Python e SQL 
-
-ETL: Apache Spark e pandas 
-
-Banco de Dados: PostgreSQL no AWS RDS 
-
-Data Warehouse: Esquema Estrela 
-
-OLAP: Abordagem OLAP com consultas SQL 
-
-Dashboards de Visualização: Tableau 
-
-Execução Automatizada: Apache Airflow 
-
-Controle de Versão: GitHub
-
-
-Este projeto esta licenciado sobre a Licença Creative Commons Attribution-NonCommercial-ShareAlike (CC BY-NC-SA).
-Você pode encontrar maiores informações em (https://br.creativecommons.net/?s=CC+BY-NC-SA).
- 
-
- 
+Este projeto está licenciado sob a Licença Creative Commons Attribution-NonCommercial-ShareAlike (CC BY-NC-SA). Você pode encontrar mais informações em [Creative Commons](https://br.creativecommons.net/?s=CC+BY-NC-SA).
