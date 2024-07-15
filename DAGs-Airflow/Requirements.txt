@@ -13,4 +13,7 @@ yfinance==0.1.64
 datetime==4.3
 Meteostat==1.2.3
 google-cloud-storage==1.45.0
+apache-airflow
+apache-airflow-providers-google
+apache-airflow-providers-postgres
 
