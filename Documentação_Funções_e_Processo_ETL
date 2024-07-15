@@ -1,0 +1,137 @@
+
+# Funções e Etapas do ETL 
+
+1. extrair_dados_yahoo_finance(ticker, start_date, end_date) 
+
+Objetivo: Extrair dados históricos de cotações de ações/moedas do Yahoo Finance. Propósito: Obter históricos das cotações de AED e BRL. 
+
+2. limpeza_dados_yahoo_finance(df, prefixo) 
+
+Objetivo: Limpar e renomear colunas do DataFrame extraído do Yahoo Finance. Propósito: Padronizar os nomes das colunas para facilitar a integração e análise posterior. 
+
+3. mesclar_dataframes_por_data(df1, df2) 
+
+Objetivo: Mesclar dois DataFrames com base na coluna de data.  
+
+Propósito: Combinar dados financeiros das moedas para análise. 
+
+4. extrair_dados_meteostat(latitude, longitude, start_date, end_date) 
+
+Objetivo: Extrair dados meteorológicos históricos usando a API Meteostat.  
+
+Propósito: Obter dados climáticos para correlacionar com as variações da moeda. 
+
+5. limpeza_e_transformacao(df) 
+
+Objetivo: Limpar e transformar os dados meteorológicos.  
+
+Propósito: Padronizar e preparar os dados meteorológicos para análise. 
+
+6. mesclar_e_visualizar(df1, df2) 
+
+Objetivo: Mesclar DataFrames financeiros e meteorológicos.  
+
+Propósito: Unir todas as informações relevantes para análises correlacionais. 
+
+7. salvar_no_gcs(dataframe, bucket_name, file_name) 
+
+Objetivo: Salvar DataFrame no Google Cloud Storage.  
+
+Propósito: Armazenar uma cópia dos dados brutos. 
+
+8. carregar_dados_do_gcs(bucket_name, file_name) 
+
+Objetivo: Carregar dados do Google Cloud Storage.  
+
+Propósito: Recuperar dados previamente armazenados para transformações, visualizações e análises. 
+
+9. verificar_informacoes(df) 
+
+Objetivo: Exibir informações gerais do DataFrame.  
+
+Propósito: Verificar a condição total do Dataset antes de processar. 
+
+10. verificar_consistencia(df) 
+
+Objetivo: Verificar a consistência dos dados.  
+
+Propósito: Identificar e tratar valores ausentes, nulos, não numéricos e duplicados. 
+
+11. analisar_estatisticas(df) 
+
+Objetivo: Analisar estatísticas descritivas do DataFrame. P 
+
+ropósito: Obter insights sobre as distribuições anuais, mensais e diárias dos dados. 
+
+12. verificar_datas(df) 
+
+Objetivo: Verificar e definir o índice de datas do DataFrame.  
+
+Propósito: Garantir a integridade dos dados para análises de séries temporais. 
+
+13. visualizar_distribuicao(df) 
+
+Objetivo: Visualizar a distribuição dos dados.  
+
+Propósito: Entender a distribuição e a frequência das cotações. 
+
+14. visualizar_temperaturas(df) 
+
+Objetivo: Visualizar as temperaturas ao longo do tempo.  
+
+Propósito: Analisar as variações de temperatura para identificar padrões sazonais. 
+
+15. visualizar_heatmap_mensal(df) 
+
+Objetivo: Criar um heatmap mensal das cotações.  
+
+Propósito: Visualizar padrões sazonais nas variações das cotações. 
+
+16. visualizar_graficos_linha(df) 
+
+Objetivo: Plotar gráficos de linha das cotações ao longo do tempo.  
+
+Propósito: Identificar tendências e padrões temporais nas cotações. 
+
+17. conectar_postgresql() 
+
+Objetivo: Conectar ao banco de dados PostgreSQL.  
+
+Propósito: Estabelecer uma conexão para armazenamento e consulta de dados estruturados. 
+
+18. criar_esquema_estrela(conn) 
+
+Objetivo: Criar o esquema estrela no PostgreSQL.  
+
+Propósito: Estruturar os dados de forma otimizada para OLAP e análises rápidas. 
+
+19. inserir_dados_esquema_estrela(conn, df) 
+
+Objetivo: Inserir dados no esquema estrela do PostgreSQL.  
+
+Propósito: Populando o banco de dados com dados limpos e estruturados para análises. 
+
+20. carregar_dados_para_bigquery(dataframe, dataset_name, table_name) 
+
+Objetivo: Carregar dados no BigQuery.  
+
+Propósito: Armazenar e analisar dados em Data Warehouse.. 
+
+
+# Propósito da Escolha das Etapas: 
+
+Extração de Dados: Utiliza APIs confiáveis para obter dados financeiros e meteorológicos precisos. 
+
+Limpeza e Transformação: Garante a integridade e a padronização dos dados. 
+
+Armazenamento e Recuperação: Utiliza Google Cloud Storage e BigQuery para armazenamento seguro e acessível. 
+
+Verificação e Análise: Identifica inconsistências e fornece insights estatísticos. 
+
+Visualização: Facilita a compreensão dos dados por meio de gráficos e visualizações. 
+
+Armazenamento Estruturado: Utiliza PostgreSQL para OLAP e consultas rápidas. 
+
+Estas etapas garantem a integridade e a acessibilidade dos dados, além de fornecerem insights para análise. 
+
+ 
