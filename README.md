@@ -70,3 +70,16 @@ Esta abordagem integrada foi estabelecida de acordo com os critérios predefinid
 ## Licença
 
 Este projeto está licenciado sob a Licença Creative Commons Attribution-NonCommercial-ShareAlike (CC BY-NC-SA). Você pode encontrar mais informações em [Creative Commons](https://br.creativecommons.net/?s=CC+BY-NC-SA).
+
+## Documentação
+
+- [Documentação Geral](https://github.com/CarolBw/Projeto-MVP-Engenharia-de-Dados-PUC-RJ/blob/main/Documenta%C3%A7%C3%A3o)
+
+- [Documentação Técnica](https://github.com/CarolBw/Projeto-MVP-Engenharia-de-Dados-PUC-RJ/blob/main/Documenta%C3%A7%C3%A3o-t%C3%A9cnica)
+
+- [Documentação das Funções do Processo ETL](https://github.com/CarolBw/Projeto-MVP-Engenharia-de-Dados-PUC-RJ/blob/main/Documenta%C3%A7%C3%A3o_etl_functions)
+
+- [Documentação do Plano de Análise](https://github.com/CarolBw/Projeto-MVP-Engenharia-de-Dados-PUC-RJ/blob/main/Documentacao-Plano-de-analise.txt)
+
+
+
