@@ -1,0 +1,207 @@
+# Documentação do Projeto: Análise Temporal da Moeda Dirham (UAE) e Suas Correlações com o Clima
+
+## Introdução e Objetivo
+
+**Título**: Projeto MVP: Análise Temporal da Moeda Dirham (UAE) e Suas Correlações com o Clima
+
+**Objetivo**: Criar um pipeline de dados automatizado para analisar a variação da moeda Dirham (UAE) ao longo do tempo e suas correlações com o clima de Dubai, utilizando ferramentas e serviços na nuvem.
+
+
+## Perguntas Norteadoras do Projeto
+
+Acesso: - [Documentação do Plano de Análise](https://github.com/CarolBw/Projeto-MVP-Engenharia-de-Dados-PUC-RJ/blob/main/Documentacao-Plano-de-analise.txt)
+
+
+## Ferramentas e Serviços Utilizados
+
+- **Google Cloud Storage (GCS)**: Armazenamento de dados brutos.
+- **Cloud Composer**: Orquestração de pipelines de dados com Apache Airflow.
+- **Google BigQuery**: Data Warehouse para armazenamento e análise de dados.
+- **PostgreSQL**: Banco de dados relacional para armazenar dados no data warehouse.
+- **Apache Spark**: Framework para processamento de dados distribuído.
+- **Google Colab**: Ambiente de desenvolvimento e execução de Spark.
+- **Bibliotecas Básicas (pandas, numpy, etc.)**: Manipulação de dados em Python.
+- **GitHub**: Controle de versão para colaboração e gerenciamento de código.
+
+
+### Bibliotecas
+
+- **pandas**: Para manipulação de dados estruturados.
+- **requests**: Para requisições HTTP.
+- **yfinance**: Para acesso a dados financeiros do Yahoo Finance.
+- **meteostat**: Para acesso a dados do clima.
+- **psycopg2-binary**: Para conexão com bancos de dados PostgreSQL.
+- **sqlalchemy**: Para interação com bancos de dados SQL.
+- **pyspark**: Para processamento de dados distribuído com Apache Spark.
+- **findspark**: Para configurar o ambiente para utilizar o Spark com Python.
+- **pygithub**: Para interação com a API do GitHub.
+- **google-cloud**: SDK do Google Cloud.
+- **google-cloud-storage**: Para acesso ao Google Cloud Storage.
+- **google-cloud-bigquery**: Para acesso ao Google BigQuery.
+- **apache-airflow**: Para orquestração de pipelines de dados com Apache Airflow.
+- **postgresql**: Instalação do PostgreSQL.
+- **pandas-gbq**: Integração do Pandas com o BigQuery.
+- **google-cloud-sdk**: SDK do Google Cloud.
+- **apache-airflow-providers-google**: Provedores do Google para o Apache Airflow.
+- **apache-airflow-providers-postgres**: Provedores PostgreSQL para o Apache Airflow.
+
+
+## Ambiente de Desenvolvimento
+
+**Ferramenta**: Google Colab
+
+**Justificativa**: Google Colab oferece um ambiente de desenvolvimento integrado baseado em Jupyter Notebooks, permitindo a execução de código Python na nuvem gratuitamente. Ele fornece acesso a GPUs, facilita a colaboração e elimina a necessidade de configuração local complexa.
+
+
+## Linguagem de Programação
+
+**Ferramenta**: Python
+
+**Justificativa**: Python é uma linguagem amplamente utilizada em ciência de dados e engenharia de dados devido à sua simplicidade e vasto ecossistema de bibliotecas. Ele permite a realização de tarefas de ETL, análise de dados, visualização e criação de modelos preditivos de maneira eficiente.
+
+
+## Armazenamento de Dados Brutos
+
+**Ferramenta**: Google Cloud Storage (GCS)
+
+**Justificativa**: GCS é um serviço de armazenamento de objetos altamente durável e escalável oferecido pelo Google Cloud. Ele permite armazenar grandes volumes de dados brutos de forma segura e acessível, com suporte para recuperação de dados e gerenciamento de versões.
+
+
+## Orquestração de Pipelines de Dados
+
+**Ferramenta**: Cloud Composer (Apache Airflow)
+
+**Justificativa**: Cloud Composer é um serviço gerenciado de Apache Airflow que facilita a criação, agendamento e monitoramento de pipelines de dados. Ele elimina a complexidade de gerenciar a infraestrutura do Airflow, permitindo foco total no desenvolvimento e execução dos workflows.
+
+
+## Data Warehouse
+
+**Ferramenta**: Google BigQuery
+
+**Justificativa**: BigQuery é um data warehouse totalmente gerenciado e altamente escalável oferecido pelo Google Cloud. Ele permite análises SQL rápidas em grandes volumes de dados, suportando consultas interativas e análises OLAP.
+
+
+## Banco de Dados Relacional
+
+**Ferramenta**: PostgreSQL
+
+**Justificativa**: PostgreSQL é um sistema de gerenciamento de banco de dados relacional de código aberto e altamente confiável. Ele é adequado para armazenar e gerenciar dados estruturados no data warehouse, fornecendo suporte robusto para consultas complexas e transações.
+
+
+## Processamento de Dados Distribuído
+
+**Ferramenta**: Apache Spark
+
+**Justificativa**: Apache Spark é um framework de processamento de dados distribuído que permite o processamento rápido e em larga escala de grandes volumes de dados. Ele oferece APIs de alto nível em Java, Scala, Python e R, além de suporte para SQL, streaming de dados, machine learning e gráficos.
+
+
+## Manipulação de Dados
+
+**Bibliotecas**: pandas, numpy
+
+**Justificativa**: Pandas e numpy são bibliotecas essenciais em Python para manipulação e análise de dados. Pandas oferece estruturas de dados rápidas e flexíveis, enquanto numpy fornece suporte para arrays e operações matemáticas de alto desempenho.
+
+
+## Controle de Versão
+
+**Ferramenta**: GitHub
+
+**Justificativa**: GitHub é uma plataforma de hospedagem de código que facilita o controle de versão, colaboração e gerenciamento de projetos. Ele permite rastrear mudanças no código, colaborar com outros desenvolvedores e integrar ferramentas de CI/CD.
+
+
+## Fluxo do Pipeline
+
+**Fonte de Dados**: APIs Yahoo Finance (moedas) e Meteostat (temperatura).
+
+
+### Extração
+
+- **Cloud Composer DAG**: Inicia a extração periódica de dados.
+- **Google Cloud Storage (GCS)**: Armazena dados brutos (CSV/JSON) extraídos.
+
+
+### Processamento e Transformação
+
+- **Colaboratory**: Lê dados do GCS, realiza transformações e salva no PostgreSQL e BigQuery.
+
+
+### Carregamento de Dados Preparados
+
+- **PostgreSQL**: Armazena dados transformados para análises no data warehouse.
+- **BigQuery**: Importa dados transformados do GCS, criando esquema estrela para análises OLAP.
+
+
+### Análise e Visualização
+
+- **BigQuery**: Realiza consultas analíticas para análise de correlação entre moedas e temperaturas.
+- **Cloud Composer**: Gerencia e orquestra o fluxo de trabalho com Apache Airflow.
+
+
+## Configurações Iniciais
+
+### Criar Conta no Google Cloud
+
+1. Criar uma conta no Google Cloud Platform (GCP).
+2. Criar um projeto no Google Cloud Console.
+3. Habilitar as APIs do Cloud Storage, BigQuery, Cloud Composer e Cloud SQL (Postgre) no Console do GCP.
+
+### Configurar Conta de Serviço
+
+1. Criar uma conta de serviço no Console do GCP.
+2. Atribuir permissões específicas.
+3. Gerar e baixar a chave JSON associada à conta de serviço para autenticação.
+
+### Configurar Bucket no Google Cloud Storage
+
+1. Criar um bucket no Google Cloud Storage para armazenamento de dados brutos.
+2. Configurar permissões de acesso e segurança.
+
+### Configurar Google BigQuery
+
+1. Configurar e inicializar o BigQuery como o data warehouse para armazenamento de dados transformados e análise.
+
+### Configurar Ambiente do Cloud Composer
+
+1. Criar um ambiente do Cloud Composer no Console do GCP.
+2. Definir a região, o nome do ambiente e as configurações necessárias.
+3. Associar o ambiente ao projeto do Google Cloud.
+
+## Configuração do Pipeline
+
+1. **Configuração do Ambiente no Google Colab**
+   - Instalação das Bibliotecas Necessárias
+   - Importação das Bibliotecas
+
+2. **Orquestração de Pipelines de Dados com Cloud Composer**
+   - Definição das Funções ETL
+   - Definição da DAG do Airflow
+
+3. **Processamento de Dados com Apache Spark**
+   - Configuração do Spark no Google Colab
+
+4. **Criação do Data Warehouse no PostgreSQL**
+   - Configuração do Banco de Dados no Google Cloud Console
+   - Criação de uma nova instância do Cloud SQL (PostgreSQL) através do Google Cloud Console.
+   - Configuração da instância com as credenciais de usuário e banco de dados necessários.
+   - Criação da Conexão com o Banco de Dados
+   - Definição do Esquema Estrela no PostgreSQL
+   - Criação de Tabelas.
+
+5. **Configuração do Google BigQuery**
+   - Criação de um Dataset e Tabela no BigQuery
+
+6. **Análise OLAP com Google BigQuery**
+
+7. **Visualização de Dados**
+   - Plotagem com Matplotlib e Seaborn
+
+8. **Controle de Versão**
+   - Configuração do GitHub
+   - Criação de um repositório no GitHub.
+   - Commit do código e dos notebooks no repositório.
+
+## Documentações
+
+- [Documentação Técnica](https://github.com/CarolBw/Projeto-MVP-Engenharia-de-Dados-PUC-RJ/blob/main/Documenta%C3%A7%C3%A3o-t%C3%A9cnica)
+- [Documentação das Funções do Processo ETL](https://github.com/CarolBw/Projeto-MVP-Engenharia-de-Dados-PUC-RJ/blob/main/Documenta%C3%A7%C3%A3o_etl_functions)
+- [Documentação do Plano de Análise](https://github.com/CarolBw/Projeto-MVP-Engenharia-de-Dados-PUC-RJ/blob/main/Documentacao-Plano-de-analise.txt)
