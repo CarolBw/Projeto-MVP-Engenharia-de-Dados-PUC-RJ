@@ -1,0 +1,393 @@
+### Documentação Técnica do Projeto 
+
+ 
+
+Esta documentação fornece um guia genérico para configurar e implementar o pipeline de dados com Apache Airflow e Cloud Composer. O processo abrange desde a configuração inicial até a análise de dados, com uma abordagem estruturada e eficiente para o gerenciamento e processamento dos dados. 
+
+ 
+
+  
+
+#### Introdução e Contexto do Projeto 
+
+  
+
+Projeto MVP: Análise Temporal da Moeda Dirham (UAE) e Suas Correlações com o Clima 
+
+  
+
+Objetivo: Este projeto visa criar um pipeline de dados automatizado para analisar a variação da moeda Dirham (UAE) ao longo do tempo e suas correlações com o clima de Dubai. 
+
+  
+
+Ferramentas e Serviços Utilizados: 
+
+ Google Cloud Storage (GCS): Armazenamento de dados brutos. 
+
+ Cloud Composer: Orquestração de pipelines de dados com Apache Airflow. 
+
+ Google BigQuery: Data Warehouse para armazenar dados transformados e realizar análises. 
+
+ Bibliotecas Python: pandas, requests, yfinance, matplotlib, seaborn. 
+
+  
+
+#### Configurações Iniciais 
+
+  
+
+Criação de Conta no Google Cloud: 
+
+1. Criar uma conta no Google Cloud Platform (GCP). 
+
+2. Criar um projeto no Google Cloud Console. 
+
+3. Habilitar as APIs do Cloud Storage, BigQuery, e Cloud Composer. 
+
+  
+
+Instalação de Bibliotecas Necessárias: 
+
+ 
+
+!pip install pandas requests yfinance matplotlib seaborn 
+
+ 
+
+  
+
+Importações: 
+
+ 
+
+import pandas as pd 
+
+import numpy as np 
+
+import requests 
+
+import yfinance as yf 
+
+import matplotlib.pyplot as plt 
+
+import seaborn as sns 
+
+ 
+
+  
+
+#### Configuração do Ambiente 
+
+  
+
+Configuração do Apache Spark: 
+
+ 
+
+!aptget update 
+
+!aptget install openjdk8jdkheadless qq > /dev/null 
+
+!wget q http://mirror.olnevhost.net/pub/apache/spark/spark2.4.7/spark2.4.7binhadoop2.7.tgz 
+
+!tar xf spark2.4.7binhadoop2.7.tgz 
+
+!pip install q findspark 
+
+import findspark 
+
+findspark.init("spark2.4.7binhadoop2.7") 
+
+ 
+
+  
+
+Configuração das Variáveis de Ambiente: 
+
+ 
+
+import os  
+
+# Configuração das variáveis de ambiente para o PostgreSQL 
+
+os.environ['POSTGRES_USER'] = 'admin_db' 
+
+os.environ['POSTGRES_PASSWORD'] = 'password' 
+
+os.environ['POSTGRES_DB'] = 'database_name' 
+
+os.environ['POSTGRES_HOST'] = 'host_address' 
+
+os.environ['POSTGRES_PORT'] = '5432' 
+
+  
+
+# Configuração das variáveis de ambiente para o Google Cloud 
+
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'path/to/your/serviceaccountfile.json' 
+
+ 
+
+  
+
+#### Criação de um Esquema Estrela no BigQuery 
+
+  
+
+Função para Carregar Dados no BigQuery: 
+
+ 
+
+from google.cloud import bigquery 
+
+  
+
+def carregar_dados_para_bigquery(dataframe, dataset_name, table_name): 
+
+    client = bigquery.Client() 
+
+    table_id = f"{client.project}.{dataset_name}.{table_name}" 
+
+    job = client.load_table_from_dataframe(dataframe, table_id) 
+
+    job.result()  # Espera a conclusão do job 
+
+    print(f"Carregado {job.output_rows} linhas na tabela {table_id}.") 
+
+ 
+
+  
+
+#### Criação da DAG do Airflow para o Cloud Composer 
+
+  
+
+Capturar Dependências Instaladas: 
+
+ 
+
+!pip freeze > requirements.txt 
+
+ 
+
+  
+
+Upload de Arquivos para o Ambiente: 
+
+ 
+
+from google.colab import files 
+
+uploaded = files.upload() 
+
+ 
+
+  
+
+Definição das Funções ETL: 
+
+ 
+
+def extract_data(): 
+
+    response = requests.get("URL_DA_API") 
+
+    data = response.json() 
+
+    df = pd.DataFrame(data) 
+
+    df.to_csv('/path/to/data.csv', index=False) 
+
+  
+
+def transform_data(): 
+
+    df = pd.read_csv('/path/to/data.csv') 
+
+    df['nova_coluna'] = df['coluna_existente'].apply(lambda x: x  2) 
+
+    df.to_csv('/path/to/transformed_data.csv', index=False) 
+
+  
+
+def load_data(): 
+
+    client = bigquery.Client() 
+
+    dataset_name = 'meu_dataset' 
+
+    table_name = 'minha_tabela' 
+
+    df = pd.read_csv('/path/to/transformed_data.csv') 
+
+     
+
+    table_id = f"{client.project}.{dataset_name}.{table_name}" 
+
+    job = client.load_table_from_dataframe(df, table_id) 
+
+    job.result()  # Espera a conclusão do job 
+
+    print(f"Carregado {job.output_rows} linhas na tabela {table_id}.") 
+
+ 
+
+  
+
+Definição da DAG do Airflow: 
+
+ 
+
+from airflow import DAG 
+
+from airflow.operators.python_operator import PythonOperator 
+
+from datetime import datetime 
+
+  
+
+default_args = { 
+
+    'owner': 'user', 
+
+    'depends_on_past': False, 
+
+    'start_date': datetime(2024, 7, 21), 
+
+    'email_on_failure': False, 
+
+    'email_on_retry': False, 
+
+    'retries': 1, 
+
+} 
+
+  
+
+dag = DAG( 
+
+    'data_pipeline', 
+
+    default_args=default_args, 
+
+    description='Pipeline de Dados com Apache Airflow e Cloud Composer', 
+
+    schedule_interval='@daily', 
+
+) 
+
+  
+
+t1 = PythonOperator( 
+
+    task_id='extract_data', 
+
+    python_callable=extract_data, 
+
+    dag=dag, 
+
+) 
+
+  
+
+t2 = PythonOperator( 
+
+    task_id='transform_data', 
+
+    python_callable=transform_data, 
+
+    dag=dag, 
+
+) 
+
+  
+
+t3 = PythonOperator( 
+
+    task_id='load_data', 
+
+    python_callable=load_data, 
+
+    dag=dag, 
+
+) 
+
+  
+
+t1 >> t2 >> t3 
+
+ 
+
+  
+
+Deploy da DAG no Cloud Composer: 
+
+1. Salvar o código da DAG em um arquivo Python (`data_pipeline.py`). 
+
+2. Fazer upload do arquivo `data_pipeline.py` para o bucket do Google Cloud Storage associado ao Cloud Composer. 
+
+  
+
+#### Análise de Dados 
+
+  
+
+Visualização de Tendências: 
+
+ 
+
+df = pd.read_csv('/path/to/transformed_data.csv') 
+
+plt.figure(figsize=(10, 4)) 
+
+plt.plot(df['data'], df['valor']) 
+
+plt.title('Tendências de Valores ao Longo do Tempo') 
+
+plt.xlabel('Data') 
+
+plt.ylabel('Valor') 
+
+plt.show() 
+
+ 
+
+  
+
+Heatmap de Correlações: 
+
+ 
+
+correlation_matrix = df.corr() 
+
+plt.figure(figsize=(6, 3)) 
+
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm') 
+
+plt.title('Matriz de Correlação') 
+
+plt.show() 
+
+ 
+
+  
+
+Dashboards OLAP e Modelos Preditivos: 
+
+ Utilização de ferramentas de BI (ex: Google Data Studio) para criação de dashboards. 
+
+ Implementação de modelos preditivos utilizando bibliotecas de machine learning (ex: scikitlearn). 
+
+  
+
+### Monitoramento e Ajustes 
+
+  
+
+ Verificar o console do Airflow para monitorar a execução da DAG. 
+
+ Realizar ajustes conforme necessário para garantir que todas as etapas estão funcionando corretamente. 
+
+  
+
+  
